@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BlackJackGame", "src\BlackJackGame\BlackJackGame.xproj", "{BA07BFD7-87D0-4F0F-82F3-56747E102E30}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2143DF44-04EF-4F0E-9B76-8B72818C1396}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "BlackJackGame.Tests", "test\BlackJackGame.Tests\BlackJackGame.Tests.xproj", "{78DAF334-8D1C-4287-8A04-28AD2DFF777E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +26,16 @@ Global
 		{BA07BFD7-87D0-4F0F-82F3-56747E102E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA07BFD7-87D0-4F0F-82F3-56747E102E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA07BFD7-87D0-4F0F-82F3-56747E102E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78DAF334-8D1C-4287-8A04-28AD2DFF777E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78DAF334-8D1C-4287-8A04-28AD2DFF777E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78DAF334-8D1C-4287-8A04-28AD2DFF777E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78DAF334-8D1C-4287-8A04-28AD2DFF777E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BA07BFD7-87D0-4F0F-82F3-56747E102E30} = {37EE899A-51E0-4B1C-99E4-1722CA6B6419}
+		{78DAF334-8D1C-4287-8A04-28AD2DFF777E} = {2143DF44-04EF-4F0E-9B76-8B72818C1396}
 	EndGlobalSection
 EndGlobal
