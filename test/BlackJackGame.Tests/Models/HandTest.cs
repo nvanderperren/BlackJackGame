@@ -115,21 +115,12 @@ namespace BlackJackGame.Tests.Models
         [Fact]
         public void ValueHandWithAceAndExceeding21_TakesAceAs1()
         {
-            BlackJackCard card = new BlackJackCard(Suit.Clubs, FaceValue.Five);
-            card.TurnCard();
-            _aHand.AddCard(card);
+            _aHand.AddCard(new BlackJackCard(Suit.Clubs, FaceValue.Ace));
+            _aHand.AddCard(new BlackJackCard(Suit.Clubs, FaceValue.Nine));
+            _aHand.AddCard(new BlackJackCard(Suit.Diamonds, FaceValue.Nine));
+            _aHand.TurnAllCardsFaceUp();
 
-            //card2
-            card = new BlackJackCard(Suit.Clubs, FaceValue.King);
-            card.TurnCard();
-            _aHand.AddCard(card);
-
-            //card ace
-            card = new BlackJackCard(Suit.Clubs, FaceValue.Ace);
-            card.TurnCard();
-            _aHand.AddCard(card);
-
-            Assert.Equal(12, _aHand.CalculateValue());
+            Assert.Equal(19, _aHand.CalculateValue());
 
 
 

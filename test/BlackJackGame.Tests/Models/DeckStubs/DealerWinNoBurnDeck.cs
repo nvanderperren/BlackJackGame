@@ -9,10 +9,18 @@ namespace BlackJackGame.Tests.Models.DeckStubs
         {
             _cards = new List<BlackJackCard>
             {
-                             
+                //dealer                 
+                new BlackJackCard(Suit.Clubs, FaceValue.Seven),
+                new BlackJackCard(Suit.Clubs, FaceValue.Five),
                 
+                //player                 
+                new BlackJackCard(Suit.Clubs, FaceValue.Seven),
+                new BlackJackCard(Suit.Clubs, FaceValue.Seven),
 
-                
+                //dealer
+                new BlackJackCard(Suit.Clubs, FaceValue.Three)
+
+
             };
         }
     }

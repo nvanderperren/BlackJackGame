@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlackJackGame.Models
 {
     public class Deck
     {
         #region Fields
-        private Random _random = new Random();
-        protected List<BlackJackCard> _cards;
+        private static Random _random = new Random();
+        protected IList<BlackJackCard> _cards;
         #endregion
 
         #region Constructors
@@ -41,7 +39,7 @@ namespace BlackJackGame.Models
         {
             for (int i = 1; i < _cards.Count * 3; i++)
             {
-                int randomPositie = _random.Next(_cards.Count);
+                int randomPositie = _random.Next(0, _cards.Count);
                 BlackJackCard card = _cards[randomPositie];
                 _cards.RemoveAt(randomPositie);
                 _cards.Add(card);

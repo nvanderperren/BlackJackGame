@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BlackJackGame.Models
 {
@@ -10,10 +10,10 @@ namespace BlackJackGame.Models
         #endregion
 
         #region Properties
-        public int NrOfCards => _cards.Count;
-        public int Value => CalculateValue();
+        public int NrOfCards {get {return Cards.Count();} } 
+        public int Value { get { return CalculateValue(); } }
 
-        public IEnumerable<BlackJackCard> Cards => _cards;
+        public IEnumerable<BlackJackCard> Cards { get { return _cards; } }
 
         #endregion
         #region Constructors
@@ -34,20 +34,20 @@ namespace BlackJackGame.Models
         {
             int total = 0;
             bool ace = false;
-            foreach (BlackJackCard c in _cards)
+            foreach (BlackJackCard c in Cards)
             {
                 total += c.Value;
                 if (c.FaceValue == FaceValue.Ace)
                     ace = true;
             }
-            if (ace && (total + 10 <= 21))
+            if (ace && (total + 10) <= 21)
                 total += 10;
             return total;
         }
 
         public void TurnAllCardsFaceUp()
         {
-            foreach (BlackJackCard c in _cards)
+            foreach (BlackJackCard c in Cards)
                 if (!c.FaceUp)
                     c.TurnCard();
         }

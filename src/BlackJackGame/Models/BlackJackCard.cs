@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlackJackGame.Models
 {
@@ -25,12 +22,7 @@ namespace BlackJackGame.Models
         #region Methods
         public void TurnCard()
         {
-            if (FaceUp)
-            {
-                FaceUp = false;
-            }
-            else
-                FaceUp = true;
+            FaceUp = !FaceUp;
         } 
         #endregion
     }

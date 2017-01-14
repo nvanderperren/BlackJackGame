@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BlackJackGame.Models;
 using Xunit;
 
@@ -9,6 +6,7 @@ namespace BlackJackGame.Tests.Models
 {
     public class DeckTest {
 
+        // ReSharper disable once InconsistentNaming
         protected Deck _deck;
 
         public DeckTest()

@@ -11,14 +11,14 @@ namespace BlackJackGame.Tests.Models.DeckStubs
             {
                 //dealer                 
                 new BlackJackCard(Suit.Clubs, FaceValue.Seven),
-                new BlackJackCard(Suit.Clubs, FaceValue.Seven),
+                new BlackJackCard(Suit.Clubs, FaceValue.Eight),
                 
                 //player                 
                 new BlackJackCard(Suit.Clubs, FaceValue.Ace),
                 new BlackJackCard(Suit.Clubs, FaceValue.Ten),
 
                 //dealer                 
-                new BlackJackCard(Suit.Clubs, FaceValue.Ten),
+                new BlackJackCard(Suit.Hearts, FaceValue.Ten),
             };
         }
     }

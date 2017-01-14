@@ -7,7 +7,7 @@ namespace BlackJackGame.Models
         #region Fields
         private const bool FaceDown = false;
         private const bool FaceUp = true;
-        protected Deck _deck;
+        private readonly Deck _deck;
         #endregion
 
         #region Properties
@@ -46,14 +46,12 @@ namespace BlackJackGame.Models
 
         private void Deal()
         {
-            for (int i = 0; i < 2; i++)
-            {
-                PlayerHand.AddCard(_deck.Draw());
-                DealerHand.AddCard(_deck.Draw());
-            }
-            PlayerHand.TurnAllCardsFaceUp();
-
-
+            AddCardToHand(DealerHand, FaceUp);
+            AddCardToHand(DealerHand, FaceDown);
+            AddCardToHand(PlayerHand, FaceUp);
+            AddCardToHand(PlayerHand, FaceUp);
+            
+            AdjustGameState(GameState.PlayerPlays);
         }
 
         private void AdjustGameState(GameState? gamestate = null)
@@ -71,17 +69,19 @@ namespace BlackJackGame.Models
         {
             if (GameState != GameState.GameOver)
                 return null;
-            if (PlayerHand.Value > 21 && DealerHand.Value <= 21)
-                return "Player Burned, Dealer Wins";
-            if (DealerHand.Value > 21)
-                return "Dealer Burned, Player Wins";
-            if (PlayerHand.Value == DealerHand.Value)
-                return "Equal, Dealer Wins";
-            if (DealerHand.Value > PlayerHand.Value)
-                return "Dealer wins";
-            if (PlayerHand.Value == 21 && DealerHand.NrOfCards == 2 &&
+            if (PlayerHand.Value > 21)
+                return "Player burned, dealer wins";
+            if (PlayerHand.Value == 21 && PlayerHand.NrOfCards == 2 &&
                 DealerHand.Value != 21)
                 return "BLACKJACK";
+            if (PlayerHand.Value == DealerHand.Value)
+                return "Equal, dealer wins";
+            if (DealerHand.Value > 21)
+                return "Dealer burned, player wins";
+            
+            if (DealerHand.Value > PlayerHand.Value)
+                return "Dealer wins";
+            
 
             return "Player wins";
         }
@@ -89,7 +89,7 @@ namespace BlackJackGame.Models
         public void GivePlayerAnotherCard()
         {
             if (GameState != GameState.PlayerPlays)
-                throw new InvalidOperationException("You cannot get a card");
+                throw new InvalidOperationException("You cannot take a card now");
 
             AddCardToHand(PlayerHand, FaceUp);
             AdjustGameState();
@@ -110,7 +110,7 @@ namespace BlackJackGame.Models
         public void PassToDealer()
         {
             DealerHand.TurnAllCardsFaceUp();
-            GameState = GameState.DealerPlays;
+            AdjustGameState(GameState.DealerPlays);
             LetDealerFinalize();
 
         } 
